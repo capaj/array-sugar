@@ -1,3 +1,12 @@
+Object.defineProperty(Array.prototype, 'first', {
+    enumerable: false,
+    configurable: false,
+    get: function() {
+        return this[0];
+    },
+    set: undefined
+});
+
 Object.defineProperty(Array.prototype, 'last', {
     enumerable: false,
     configurable: false,

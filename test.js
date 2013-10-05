@@ -10,8 +10,9 @@ module.exports = {
         test.equals(fullArr.isEmpty, true);
         test.done();
     },
-    last: function (test) {
+    lastFirst: function (test) {
         test.equals(arr.last, 5);
+        test.equals(arr.first, 1);
         test.done();
     },
     contains: function (test) {
