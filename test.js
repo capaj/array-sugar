@@ -5,14 +5,18 @@ module.exports = {
     empty: function (test) {
         var fullArr = [1,2,3,4,5];
         test.equals(arr.isEmpty, false);
-        fullArr.empty();
+        fullArr.clear();
         test.equals(fullArr.length, 0);
         test.equals(fullArr.isEmpty, true);
         test.done();
     },
     lastFirst: function (test) {
-        test.equals(arr.last, 5);
         test.equals(arr.first, 1);
+        test.equals(arr.last, 5);
+        arr.first = -1;
+        arr.last = 10;
+        test.equals(arr[0], -1);
+        test.equals(arr[arr.length-1], 10);
         test.done();
     },
     contains: function (test) {

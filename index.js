@@ -39,7 +39,7 @@ Object.defineProperty(Array.prototype, 'contains', {
 /**
  * will erase the array and leave it empty
  */
-Object.defineProperty(Array.prototype, 'empty', {
+Object.defineProperty(Array.prototype, 'clear', {
     enumerable: false,
     configurable: false,
     value: function () {
