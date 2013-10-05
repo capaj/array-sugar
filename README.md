@@ -1,10 +1,8 @@
 array-sugar
 ============
-syns stands for syntactic sugar.
-Tired of not having a last property on array in Javascript? Tired of not having contains method?
-This little script solves those.
 
-It provides syntactic sugar enabling you to use:
+Tired of not having a last property on array in Javascript? Tired of not having contains method?
+This little script solves those by adding a bit of sugar:
 
     array.contains(o)      instead      array.indexOf(o) != -1
     array.last             instead      array[array.length-1]
@@ -12,6 +10,11 @@ It provides syntactic sugar enabling you to use:
     array.isEmpty          instead      array.length == 0
 
 Usable in any environment that supports Object.defineProperty(oldest would probably be IE9).
+
+Available through npm and bower.
+
+    npm install array-sugar
+    bower install array-sugar
 
 Tests included.
 
