@@ -4,7 +4,9 @@ Object.defineProperty(Array.prototype, 'first', {
     get: function() {
         return this[0];
     },
-    set: undefined
+    set: function(val) {
+        return this[0] = val;   
+    }
 });
 
 Object.defineProperty(Array.prototype, 'last', {
@@ -13,7 +15,9 @@ Object.defineProperty(Array.prototype, 'last', {
     get: function() {
         return this[this.length - 1];
     },
-    set: undefined
+    set: function(val) {
+        return this[this.length - 1] = val;
+    }
 });
 
 /**
@@ -51,7 +55,7 @@ Object.defineProperty(Array.prototype, 'isEmpty', {
     enumerable: false,
     configurable: false,
     get: function() {
-        return this.length == 0;
+        return this.length === 0;
     },
     set: undefined
 });
