@@ -1,0 +1,11 @@
+{
+    "name": "array-sugar",
+    "version": "0.0.2",
+    "main": "index.js",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "components",
+        "test.js"
+    ]
+}
