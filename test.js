@@ -1,13 +1,13 @@
 require('./index');
 var arr = [1,2,3,4,5];
+var emptyArr = [1,2,3,4,5];
 
 module.exports = {
     empty: function (test) {
-        var fullArr = [1,2,3,4,5];
         test.equals(arr.isEmpty, false);
-        fullArr.clear();
-        test.equals(fullArr.length, 0);
-        test.equals(fullArr.isEmpty, true);
+        emptyArr.clear();
+        test.equals(emptyArr.length, 0);
+        test.equals(emptyArr.isEmpty, true);
         test.done();
     },
     lastFirst: function (test) {
@@ -17,6 +17,8 @@ module.exports = {
         arr.last = 10;
         test.equals(arr[0], -1);
         test.equals(arr[arr.length-1], 10);
+        test.equals(emptyArr.first, null);
+        test.equals(emptyArr.last, null);
         test.done();
     },
     contains: function (test) {

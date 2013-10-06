@@ -1,61 +1,63 @@
-Object.defineProperty(Array.prototype, 'first', {
-    enumerable: false,
-    configurable: false,
-    get: function() {
-        return this[0];
-    },
-    set: function(val) {
-        return this[0] = val;   
+(function (arrProt) {
+    var props = {
+        first: {
+            get: function() {
+                return this[0];
+            },
+            set: function(val) {
+                return this[0] = val;
+            }
+        },
+        last: {
+            get: function() {
+                return this[this.length - 1];
+            },
+            set: function(val) {
+                return this[this.length - 1] = val;
+            }
+        },
+        isEmpty: {
+            get: function() {
+                return this.length === 0;
+            },
+            set: undefined
+        }
+    };
+
+    var methods = {
+        /**
+         * @param {*} val
+         * @returns {boolean}
+         */
+        contains: function (val) {
+            return this.indexOf(val) != -1;
+        },
+        /**
+         * will erase the array and leave it empty
+         */
+        clear: function () {
+            this.length = 0;
+        }
+    };
+
+    for(var prop in props){
+        if (!arrProt.hasOwnProperty(prop)) {
+            Object.defineProperty(Array.prototype, prop, {
+                enumerable: false,
+                configurable: false,
+                set: props[prop].set,
+                get: props[prop].get
+            });
+        }
     }
-});
-
-Object.defineProperty(Array.prototype, 'last', {
-    enumerable: false,
-    configurable: false,
-    get: function() {
-        return this[this.length - 1];
-    },
-    set: function(val) {
-        return this[this.length - 1] = val;
+    for(var m in methods){
+        if (!arrProt.hasOwnProperty(m)) {
+            Object.defineProperty(Array.prototype, m, {
+                enumerable: false,
+                configurable: false,
+                value: methods[m],
+                writable: false
+            });
+        }
     }
-});
-
-/**
- * check whether array contains an item
- */
-Object.defineProperty(Array.prototype, 'contains', {
-    enumerable: false,
-    configurable: false,
-    /**
-     * @param {*} val
-     * @returns {boolean}
-     */
-    value: function (val) {
-        return this.indexOf(val) != -1;
-    },
-    writable: false
-});
-
-/**
- * will erase the array and leave it empty
- */
-Object.defineProperty(Array.prototype, 'clear', {
-    enumerable: false,
-    configurable: false,
-    value: function () {
-        this.length = 0;
-    },
-    writable: false
-});
-
-/**
- * syntactic sugar for this.length == 0
- */
-Object.defineProperty(Array.prototype, 'isEmpty', {
-    enumerable: false,
-    configurable: false,
-    get: function() {
-        return this.length === 0;
-    },
-    set: undefined
-});
+})(Array.prototype);
