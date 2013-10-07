@@ -17,8 +17,8 @@ module.exports = {
         arr.last = 10;
         test.equals(arr[0], -1);
         test.equals(arr[arr.length-1], 10);
-        test.equals(emptyArr.first, null);
-        test.equals(emptyArr.last, null);
+        test.equals(typeof emptyArr.first, 'undefined');
+        test.equals(typeof emptyArr.last, 'undefined');
         test.done();
     },
     contains: function (test) {

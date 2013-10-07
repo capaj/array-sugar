@@ -2,7 +2,8 @@
     var props = {
         first: {
             get: function() {
-                return this[0];
+				if (this.isEmpty) return undefined;
+				return this[0];
             },
             set: function(val) {
                 return this[0] = val;
@@ -10,7 +11,8 @@
         },
         last: {
             get: function() {
-                return this[this.length - 1];
+				if (this.isEmpty) return undefined;
+				return this[this.length - 1];
             },
             set: function(val) {
                 return this[this.length - 1] = val;
