@@ -35,7 +35,7 @@
             return this.indexOf(val) != -1;
         },
         /**
-         * will erase the array and leave it empty
+         * will erase the array
          */
         clear: function () {
             this.length = 0;
@@ -44,7 +44,7 @@
 
     for(var prop in props){
         if (!arrProt.hasOwnProperty(prop)) {
-            Object.defineProperty(Array.prototype, prop, {
+            Object.defineProperty(arrProt, prop, {
                 enumerable: false,
                 configurable: false,
                 set: props[prop].set,
@@ -54,7 +54,7 @@
     }
     for(var m in methods){
         if (!arrProt.hasOwnProperty(m)) {
-            Object.defineProperty(Array.prototype, m, {
+            Object.defineProperty(arrProt, m, {
                 enumerable: false,
                 configurable: false,
                 value: methods[m],

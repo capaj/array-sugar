@@ -1,6 +1,6 @@
 {
     "name": "array-sugar",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": false,
     "author": "capaj <capajj@gmail.com>",
     "description": "adds last, first, contains, isEmpty and empty to array utilizing Object.defineProperty",
@@ -8,6 +8,7 @@
         "type": "git",
         "url": "https://github.com/capaj/array-sugar.git"
     },
+    "main": "./array-sugar",
     "engines": {
         "node": ">=0.8"
     },

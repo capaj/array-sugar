@@ -1,6 +1,6 @@
 {
     "name": "array-sugar",
-    "version": "0.1.0",
+    "version": "0.1.1s",
     "main": "index.js",
     "ignore": [
         "**/.*",
