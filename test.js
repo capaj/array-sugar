@@ -1,9 +1,17 @@
 require('./array-sugar');
 var arr = [1,2,3,4,5];
 var emptyArr = [1,2,3,4,5];
+var forRemove = [1,2,3,4,5];
 
 module.exports = {
-    empty: function (test) {
+    remove: function (test) {
+        test.equals(forRemove.remove(7), false);
+        test.equals(forRemove.remove(5), true);
+        test.equals(forRemove.last, 4);
+        test.equals(forRemove.length, 4);
+        test.done();
+    },
+    clear: function (test) {
         test.equals(arr.isEmpty, false);
         emptyArr.clear();
         test.equals(emptyArr.length, 0);

@@ -32,7 +32,20 @@
          * @returns {boolean}
          */
         contains: function (val) {
-            return this.indexOf(val) != -1;
+            return this.indexOf(val) !== -1;
+        },
+        /**
+         * finds and removes the item from array
+         * @param item
+         * @returns {boolean} true when item was removed, else false
+         */
+        remove: function (item) {
+            var index = this.indexOf(item);
+            if (index !== -1) {
+                this.splice(index, 1);
+                return true;
+            }
+            return false;
         },
         /**
          * will erase the array

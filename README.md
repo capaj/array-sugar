@@ -6,6 +6,7 @@ This little script solves those by adding a bit of sugar:
 ```javascript    
      var array = [1, 2, 3];
      array.contains(o)      instead      array.indexOf(o) != -1
+     array.remove(o)        instead      array.splice(array.indexOf(o), 1) //remove returns true/false indicating whether the item was removed or not
      array.clear()          instead      array.length = 0
      array.isEmpty          instead      array.length == 0
      array.first            instead      array[0]
