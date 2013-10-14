@@ -2,9 +2,9 @@ array-sugar
 ============
 
 Tired of not having a last property on array in Javascript? Tired of not having contains method?
-This little script solves those by adding a bit of sugar:
+This little script solves those by adding a bit of sugar allowing you to do:
 ```javascript    
-     var array = [1, 2, 3];
+     Array.range(1,3)       instead      [1, 2, 3];
      array.contains(o)      instead      array.indexOf(o) != -1
      array.remove(o)        instead      array.splice(array.indexOf(o), 1) //remove returns true when o was removed
      array.clear()          instead      array.length = 0
