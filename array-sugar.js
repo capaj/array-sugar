@@ -1,5 +1,26 @@
-(function (arrProt) {
-    var props = {
+(function (arr) {
+	function isNumber(n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);	//thx to http://stackoverflow.com/questions/18082/validate-numbers-in-javascript-isnumeric
+	}
+
+	/**
+	 * returns an array of numbers from low to high including low and high
+	 * @param {Number} low
+	 * @param {Number} high
+	 * @returns {Array}
+	 */
+	arr.range = function (low, high) {
+		var r = [];
+		if (isNumber(low) && (isNumber(high))) {
+			while(high >= low){
+				r.push(low);
+				low++;
+			}
+		}
+		return r;
+	};
+    var arrProt = arr.prototype;
+	var props = {
         first: {
             get: function() {
 				if (this.isEmpty) return undefined;
@@ -75,4 +96,4 @@
             });
         }
     }
-})(Array.prototype);
+})(Array);

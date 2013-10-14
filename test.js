@@ -33,5 +33,11 @@ module.exports = {
         test.equals(arr.contains(3), true);
         test.equals(arr.contains(6), false);
         test.done();
-    }
+    },
+	range: function (test) {
+		test.equals(Array.range([],[]).length, 0);
+		test.equals(Array.range(10,5).length, 0);
+		test.equals(Array.range(5,10).length, 6);
+		test.done();
+	}
 };
