@@ -73,6 +73,12 @@
          */
         clear: function () {
             this.length = 0;
+        },
+		/**
+         * will return a copy of the array
+         */
+        copy: function () {
+            return this.slice(0);
         }
     };
 

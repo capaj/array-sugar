@@ -18,6 +18,16 @@ module.exports = {
         test.equals(emptyArr.isEmpty, true);
         test.done();
     },
+	copy: function (test) {
+        var first = [1,2,3];
+        var second = first.copy();
+        test.equals(first.length, second.length);
+		second[1] = 4;
+        test.equals(first[1], 2);
+        test.equals(second[1], 4);
+        test.equals(first == second, false);
+        test.done();
+    },
     lastFirst: function (test) {
         test.equals(arr.first, 1);
         test.equals(arr.last, 5);
