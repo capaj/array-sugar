@@ -3,7 +3,7 @@
     "version": "0.2.2",
     "private": false,
     "author": "capaj <capajj@gmail.com>",
-    "description": "adds last, first, remove, contains, isEmpty and empty to array utilizing Object.defineProperty",
+    "description": "adds last, first, remove, contains, isEmpty and few more methods/properties to Array utilizing Object.defineProperty",
     "repository": {
         "type": "git",
         "url": "https://github.com/capaj/array-sugar.git"
