@@ -55,6 +55,20 @@
         contains: function (val) {
             return this.indexOf(val) !== -1;
         },
+		/**
+		 * Syntax:
+		 *  array.insert(index, value1, value2, ..., valueN)
+		 * @param {Number} index where item will be inserted, if bigger than length of an array, will be inserted at the end of an array, not
+		 * @param [...] unlimited amount of values to insert
+		 * @returns {Array}
+		 */
+		insert: function(index) {
+			index = Math.min(index, this.length);
+			arguments.length > 1
+				&& this.splice.apply(this, [index, 0].concat([].pop.call(arguments)))
+			    && this.insert.apply(this, arguments);
+			return this;
+		},
         /**
          * finds and removes the item from array
          * @param item

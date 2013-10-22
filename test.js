@@ -49,5 +49,20 @@ module.exports = {
 		test.equals(Array.range(10,5).length, 0);
 		test.equals(Array.range(5,10).length, 6);
 		test.done();
+	},
+	insert: function (test) {
+		var arr1 = ['a', 'c'];
+		arr1.insert(1, 'b');
+		test.equals(arr1.length, 3);
+		test.equals(arr1[1], 'b');
+
+		arr1.insert(arr1.length - 1, 'g', 'e');
+		test.equals(arr1.length, 5);
+		arr1.insert(arr1.length - 1);
+		test.equals(arr1.length, 5);
+		test.equals(arr1.insert(arr1.length-1), arr1);
+		arr1.insert(0, ['f','h']);
+		test.equals(arr1.length, 7);
+		test.done();
 	}
 };
