@@ -9,6 +9,7 @@ This little script solves those by adding a bit of sugar allowing you to do:
      array.remove(o)        instead      array.splice(array.indexOf(o), 1) //remove returns true when o was removed
      array.clear()          instead      array.length = 0
      array.copy()           instead      array.slice(0)
+     array.insert(i,item)   instead      array.splice(i, 0, item); //plus it can take variable number of args
      array.isEmpty          instead      array.length == 0
      array.first            instead      array[0]
      array.last             instead      array[array.length-1]
