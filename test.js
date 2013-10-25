@@ -64,5 +64,25 @@ module.exports = {
 		arr1.insert(0, ['f','h']);
 		test.equals(arr1.length, 7);
 		test.done();
+	},
+	findOne: function (test) {
+		var first = {a:2};
+		var arr = [first, {b:3}, {c:6}, {a:2, c:3}];
+		var testFn = function (e) {
+			return e.a == 2;
+		};
+		test.equals(arr.findOne(testFn), first);
+
+		test.notEqual(arr.findOne(testFn, true), first);
+		test.equals(arr.findOne({}), undefined);
+		test.done();
+	},
+	replace: function (test) {
+		var arr = ['a', 'b', 'c'];
+
+		test.equals(arr.replace('aaa'), false);
+		test.equals(arr.replace('c', 'l'), 2);
+		test.equals(arr[2], 'l');
+		test.done();
 	}
 };

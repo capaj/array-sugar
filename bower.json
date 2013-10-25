@@ -1,6 +1,6 @@
 {
     "name": "array-sugar",
-    "version": "0.2.2",
+    "version": "0.2.4",
     "ignore": [
         "**/.*",
         "node_modules",

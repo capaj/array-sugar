@@ -48,9 +48,51 @@
     };
 
     var methods = {
-        /**
+		/**
+		 * traverses array and returns first element on which test function returns true
+		 * @param test
+		 * @param {Boolean} fromEnd pass true if you want to traverse array from end to beginning
+		 * @returns {*|null|undefined} an element of an array, or undefined when passed param is not a function
+		 */
+		findOne: function (test, fromEnd) {
+			var i;
+			if (typeof test !== 'function') return undefined;
+			if (fromEnd) {
+				i = this.length;
+				while(i--){
+					if (test(this[i], i, this)) {
+						return this[i];
+					}
+				}
+			} else {
+				i = 0;
+				while(i < this.length){
+					if (test(this[i], i, this)) {
+						return this[i];
+					}
+					i++;
+				}
+			}
+			return null;
+		},
+		/**
+		 *	replace method
+		 * @param {*} toReplace
+		 * @param {*} itemWith
+		 * @returns {Number|false} index when item was replaced, false when not
+		 */
+		replace: function (toReplace, itemWith) {
+			var index = this.indexOf(toReplace);
+			if (~index) {
+				this[index] = itemWith;
+				return index;
+			} else {
+				return false;
+			}
+		},
+		/**
          * @param {*} val
-         * @returns {boolean}
+         * @returns {boolean} true when item is in the array
          */
         contains: function (val) {
             return this.indexOf(val) !== -1;

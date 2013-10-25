@@ -7,6 +7,8 @@ This little script solves those by adding a bit of sugar allowing you to do:
      Array.range(1,3)       instead      [1, 2, 3];
      array.contains(o)      instead      array.indexOf(o) != -1
      array.remove(o)        instead      array.splice(array.indexOf(o), 1) //remove returns true when o was removed
+     array.replace(o, n)    instead      array[array.indexOf(o)] = n;
+     array.findOne(test)    instead      array.filter(test)[0];
      array.clear()          instead      array.length = 0
      array.copy()           instead      array.slice(0)
      array.insert(i,item)   instead      array.splice(i, 0, item); //plus it can take variable number of args
