@@ -135,6 +135,15 @@
          */
         copy: function () {
             return this.slice(0);
+        },
+        /**
+         * Rotates an array by given number of fields in given direction
+         * @param {Number} count
+         * @param {boolean} direction true for shifting array to the left
+         * @returns {Array}
+         */
+        rotate: function (count,direction) {
+                return direction ? this.concat(this.splice(0,count)) : this.splice(this.length-count).concat(this);
         }
     };
 
