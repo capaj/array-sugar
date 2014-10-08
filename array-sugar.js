@@ -19,6 +19,24 @@
 		}
 		return r;
 	};
+
+	/**
+	 *
+	 * @param {Array} array
+	 * @returns {Number}
+	 */
+	arr.max = function (array) {
+		return Math.max.apply(null, array);
+	};
+	/**
+	 *
+	 * @param {Array} array
+	 * @returns {Number}
+	 */
+	arr.min = function (array) {
+		return Math.min.apply(null, array);
+	};
+
     var arrProt = arr.prototype;
 	var props = {
         first: {

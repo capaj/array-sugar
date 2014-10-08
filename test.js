@@ -84,5 +84,16 @@ module.exports = {
 		test.equals(arr.replace('c', 'l'), 2);
 		test.equals(arr[2], 'l');
 		test.done();
+	},
+	max: function(test) {
+		var arr = [5,9,-10];
+		test.equals(Array.max(arr), 9);
+		test.done();
+	},
+	min: function(test) {
+		var arr = [5,9,-10];
+		test.equals(Array.min(arr), -10);
+		test.done();
+
 	}
 };

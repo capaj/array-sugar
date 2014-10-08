@@ -1,6 +1,6 @@
 {
     "name": "array-sugar",
-    "version": "0.2.4",
+    "version": "1.0.0",
     "private": false,
     "author": "capaj <capajj@gmail.com>",
     "description": "adds last, first, remove, contains, isEmpty and few more methods/properties to Array utilizing Object.defineProperty",
@@ -21,6 +21,6 @@
     ],
     "license": "MIT",
     "devDependencies": {
-        "nodeunit": "~0.8.1"
+        "nodeunit": "~0.9"
     }
 }
