@@ -65,6 +65,39 @@ module.exports = {
 		test.equals(arr1.length, 7);
 		test.done();
 	},
+	insertUnique: function (test) {
+		var arr1 = ['a', 'c'];
+		arr1.insertUnique('b');
+		test.equals(arr1.length, 3);
+
+		arr1.insertUnique('g');
+		test.equals(arr1.length, 4);
+
+		arr1.insertUnique('g');
+		test.equals(arr1.length, 4);
+
+		arr1.insertUnique('b');
+		test.equals(arr1.length, 4);
+		test.done();
+	},
+	mergeUnique: function (test) {
+		var arr1 = ['a', 'b'];
+		arr1.mergeUnique(['c','d']);
+		test.equals(arr1.length, 4);
+
+		arr1.mergeUnique('g');
+		test.equals(arr1.length, 4);
+
+		arr1.mergeUnique([]);
+		test.equals(arr1.length, 4);
+
+		arr1.mergeUnique(['e','b','f']);
+		test.equals(arr1.length, 6);
+
+		arr1.mergeUnique(['a','c']);
+		test.equals(arr1.length, 6);
+		test.done();
+	},
 	findOne: function (test) {
 		var first = {a:2};
 		var arr = [first, {b:3}, {c:6}, {a:2, c:3}];
