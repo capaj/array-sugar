@@ -129,6 +129,26 @@
 			    && this.insert.apply(this, arguments);
 			return this;
 		},
+		/**
+		 * Inserts element to an array only if it is not present yet
+		 * @param {Object} item to insert
+		 */
+		insertUnique: function(item) {
+			if (!this.contains(item)) {
+				this.push(item);
+			}
+		},
+		/**
+		 * Merges only unique items from both arrays
+		 * @param items
+		 */
+		mergeUnique: function(items) {
+			if (items && Object.prototype.toString.call(items) !== "[object Array]") return;
+
+			for (var i = 0, count = items.length; i < count; i++) {
+				this.insertUnique(items[i]);
+			}
+		},
         /**
          * finds and removes the item from array
          * @param item
