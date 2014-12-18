@@ -37,33 +37,62 @@
 		return Math.min.apply(null, array);
 	};
 
-    var arrProt = arr.prototype;
+	var arrProt = arr.prototype;
 	var props = {
-        first: {
-            get: function() {
+		first: {
+			get: function() {
 				if (this.isEmpty) return undefined;
 				return this[0];
-            },
-            set: function(val) {
-                return this[0] = val;
-            }
-        },
-        last: {
-            get: function() {
+			},
+			set: function(val) {
+				return this[0] = val;
+			}
+		},
+		last: {
+			get: function() {
 				if (this.isEmpty) return undefined;
 				return this[this.length - 1];
-            },
-            set: function(val) {
-                return this[this.length - 1] = val;
-            }
-        },
-        isEmpty: {
-            get: function() {
-                return this.length === 0;
-            },
-            set: undefined
-        }
-    };
+			},
+			set: function(val) {
+				return this[this.length - 1] = val;
+			}
+		},
+		isEmpty: {
+			get: function() {
+				return this.length === 0;
+			},
+			set: undefined
+		},
+		unique: {
+			get: function(){
+				var self = this;
+				return {
+					/**
+					 * Inserts element to an array only if it is not present yet
+					 * @param {Object} item to insert
+					 */
+					insert: function(item) {
+						if (!self.contains(item)) {
+							self.push(item);
+						}
+					},
+					/**
+					 * Merges only unique items from both arrays
+					 * @param {Array} items if a si
+					 */
+					merge: function(items) {
+						if (items && Object.prototype.toString.call(items) !== "[object Array]") {
+							throw new TypeError('Array was expected as a parameter for Array.unique.merge()');
+						}
+
+						for (var i = 0, count = items.length; i < count; i++) {
+							self.unique.insert(items[i]);
+						}
+					}
+				};
+			}
+		}
+	};
 
     var methods = {
 		/**
@@ -129,40 +158,40 @@
 			    && this.insert.apply(this, arguments);
 			return this;
 		},
-        /**
-         * finds and removes the item from array
-         * @param item
-         * @returns {boolean} true when item was removed, else false
-         */
-        remove: function (item) {
-            var index = this.indexOf(item);
-            if (index !== -1) {
-                this.splice(index, 1);
-                return true;
-            }
-            return false;
-        },
-        /**
-         * will erase the array
-         */
-        clear: function () {
-            this.length = 0;
-        },
-		/**
-         * will return a copy of the array
-         */
-        copy: function () {
-            return this.slice(0);
-        },
-        /**
-         * Rotates an array by given number of fields in given direction
-         * @param {Number} count
-         * @param {boolean} direction true for shifting array to the left
-         * @returns {Array}
-         */
-        rotate: function (count,direction) {
-                return direction ? this.concat(this.splice(0,count)) : this.splice(this.length-count).concat(this);
-        }
+			/**
+			 * finds and removes the item from array
+			 * @param item
+			 * @returns {boolean} true when item was removed, else false
+			 */
+			remove: function (item) {
+					var index = this.indexOf(item);
+					if (index !== -1) {
+							this.splice(index, 1);
+							return true;
+					}
+					return false;
+			},
+			/**
+			 * will erase the array
+			 */
+			clear: function () {
+					this.length = 0;
+			},
+			/**
+			 * will return a copy of the array
+			 */
+			copy: function () {
+					return this.slice(0);
+			},
+			/**
+			 * Rotates an array by given number of fields in given direction
+			 * @param {Number} count
+			 * @param {boolean} direction true for shifting array to the left
+			 * @returns {Array}
+			 */
+			rotate: function (count,direction) {
+							return direction ? this.concat(this.splice(0,count)) : this.splice(this.length-count).concat(this);
+			}
     };
 
     for(var prop in props){
