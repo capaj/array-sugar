@@ -73,16 +73,16 @@ module.exports = {
   },
   insertUnique: function (test) {
     var arr1 = ['a', 'c'];
-    arr1.unique.insert('b');
+    arr1.unique.push('b');
     test.equals(arr1.length, 3);
 
-    arr1.unique.insert('g');
+    arr1.unique.push('g');
     test.equals(arr1.length, 4);
 
-    arr1.unique.insert('g');
+    arr1.unique.push('g');
     test.equals(arr1.length, 4);
 
-    arr1.unique.insert('b');
+    arr1.unique.push('b');
     test.equals(arr1.length, 4);
     test.done();
   },
