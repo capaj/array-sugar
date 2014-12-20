@@ -65,6 +65,12 @@ module.exports = {
     test.equals(arr1.length, 7);
     test.done();
   },
+  unique: function (test){
+    var a=[1,5,1,6,4,5,2,5,4,3,1,2,6,6,3,3,2,4];
+    a = a.unique();
+    test.deepEqual(a, [1,5,6,4,2,3]);
+    test.done();
+  },
   insertUnique: function (test) {
     var arr1 = ['a', 'c'];
     arr1.unique.insert('b');
@@ -115,7 +121,7 @@ module.exports = {
   replace: function(test) {
     var arr = ['a', 'b', 'c'];
 
-    test.equals(arr.replace('aaa'), false);
+    test.equals(arr.replace('aaa'), -1);
     test.equals(arr.replace('c', 'l'), 2);
     test.equals(arr[2], 'l');
     test.done();

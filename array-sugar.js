@@ -64,32 +64,46 @@
 			set: undefined
 		},
 		unique: {
+			/**
+			 * @returns {getUnique} function
+			 */
 			get: function(){
 				var self = this;
-				return {
-					/**
-					 * Inserts element to an array only if it is not present yet
-					 * @param {Object} item to insert
-					 */
-					insert: function(item) {
-						if (!self.contains(item)) {
-							self.push(item);
-						}
-					},
-					/**
-					 * Merges only unique items from both arrays
-					 * @param {Array} items if a si
-					 */
-					merge: function(items) {
-						if (items && Object.prototype.toString.call(items) !== "[object Array]") {
-							throw new TypeError('Array was expected as a parameter for Array.unique.merge()');
-						}
 
-						for (var i = 0, count = items.length; i < count; i++) {
-							self.unique.insert(items[i]);
-						}
+				/**
+				 *
+				 * @returns {Array.<T>} with non unique items filtered out
+				 */
+				function getUnique() {
+					return self.filter(function(itm,i,a){
+						return i === a.indexOf(itm);
+					});
+				}
+
+				/**
+				 * Inserts element to an array only if it is not present yet
+				 * @param {Object} item to insert
+				 */
+				getUnique.insert = function(item) {
+					if (!self.contains(item)) {
+						self.push(item);
 					}
 				};
+				/**
+				 * Merges only unique items from both arrays
+				 * @param {Array} items if a si
+				 */
+				getUnique.merge = function(items) {
+					if (items && Object.prototype.toString.call(items) !== "[object Array]") {
+						throw new TypeError('Array was expected as a parameter for Array.unique.merge()');
+					}
+
+					for (var i = 0, count = items.length; i < count; i++) {
+						self.unique.insert(items[i]);
+					}
+				};
+
+				return getUnique;
 			}
 		}
 	};
@@ -97,7 +111,7 @@
     var methods = {
 		/**
 		 * traverses array and returns first element on which test function returns true
-		 * @param test
+		 * @param {Function<Boolean>} test
 		 * @param {Boolean} fromEnd pass true if you want to traverse array from end to beginning
 		 * @returns {*|null|undefined} an element of an array, or undefined when passed param is not a function
 		 */
@@ -126,16 +140,14 @@
 		 *	replace method
 		 * @param {*} toReplace
 		 * @param {*} itemWith
-		 * @returns {Number|false} index when item was replaced, false when not
+		 * @returns {Number} index when item was replaced, -1 when not
 		 */
 		replace: function (toReplace, itemWith) {
 			var index = this.indexOf(toReplace);
-			if (~index) {
+			if (~index) {	//Bitwise NOT operator-fast check if index is -1 or not
 				this[index] = itemWith;
-				return index;
-			} else {
-				return false;
 			}
+			return index;
 		},
 		/**
          * @param {*} val
