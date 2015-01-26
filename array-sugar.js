@@ -7,14 +7,24 @@
    * returns an array of numbers from low to high including low and high
    * @param {Number} low
    * @param {Number} high
-   * @returns {Array}
+   * @returns {Array} including low and high
    */
   arr.range = function(low, high) {
     var r = [];
+    var holder;
+
     if (isNumber(low) && (isNumber(high))) {
+      if (low > high) {
+        holder = low;
+        low = high;
+        high = holder;
+      }
       while (high >= low) {
         r.push(low);
         low++;
+      }
+      if (isNumber(holder)) {
+        r.reverse();
       }
     }
     return r;

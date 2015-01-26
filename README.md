@@ -27,9 +27,9 @@ Available through npm and bower, just require(or include with regular script tag
 
     npm install array-sugar
     bower install array-sugar
-    jspm install github:capaj/array-sugar
+    jspm install npm:array-sugar
 
-Tests via nodeunit included.
+Then require('array-sugar'); and you're done.
 
 #known incompatibilities
 Angular ngSanitize module in version 1.2.0-rc2 in it's method assigns to arr.last and this collides with our 'last' getter.
@@ -37,6 +37,6 @@ So beware, I have created a pull request so that ngSanitize doesn't break, but w
 [compatible ngSanitize](https://github.com/capaj/angular.js/blob/master/src/ngSanitize/sanitize.js)
 
 ##Is it a good idea to extend array.prototype?
-If you are NOT writing a library but a web app which you own, I don't consider this a bad practice. I have quite few libraries and I do not use array-sugar in them even if It would be helpful most of the time. Users of these libraries would have their Array unexpectedly modified and we can't have that. But if you are building an end product, I think it is quite allright to do that.
+If I am writing a web app, NOT a library/framework, I don't consider this a bad practice. I have quite few libraries and I do not use array-sugar in them even if It would be helpful most of the time. Users of these libraries would have their Array unexpectedly modified and we can't have that. But if you are building an end product used by end-user, I think it is quite allright to do that.
 
 Missing any sugar? Please do submit a pull or feature request.

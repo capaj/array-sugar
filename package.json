@@ -1,6 +1,6 @@
 {
     "name": "array-sugar",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "private": false,
     "author": "capaj <capajj@gmail.com>",
     "description": "adds last, first, remove, contains, isEmpty and few more methods/properties to Array utilizing Object.defineProperty",
@@ -16,11 +16,18 @@
         "array",
         "array-methods",
         "extend",
+        "array.contains",
+        "ecmascript",
+        "array.prototype",
         "sugar",
         "syntactic sugar"
     ],
+    "scripts": {
+      "test": "mocha"
+    },
     "license": "MIT",
     "devDependencies": {
-        "nodeunit": "~0.9"
+      "mocha": "^2.1.0",
+      "chai": "^1.10.0"
     }
 }
