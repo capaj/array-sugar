@@ -1,4 +1,4 @@
-array-sugar
+array-sugar  [![Build Status](https://travis-ci.org/capaj/array-sugar.svg?branch=master)](https://travis-ci.org/capaj/array-sugar)
 ============
 
 Tired of not having a last property on array in Javascript? Tired of not having contains method?
