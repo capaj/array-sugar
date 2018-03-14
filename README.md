@@ -1,6 +1,8 @@
 array-sugar  [![Build Status](https://travis-ci.org/capaj/array-sugar.svg?branch=master)](https://travis-ci.org/capaj/array-sugar)
 ============
 
+## DEPRECATED
+
 Tired of not having a last property on array in Javascript? Tired of not having contains method?
 This little script solves those by adding a bit of sugar allowing you to do:
 ```javascript    
@@ -35,6 +37,5 @@ Then require('array-sugar'); and you're done.
 Angular ngSanitize module in it's method assigns to arr.last and this collides with our 'last' getter.
 
 ## Is it a good idea to extend array.prototype?
-If I am writing a web app, NOT a library/framework, I don't consider this a bad practice. I have quite few libraries and I do not use array-sugar in them even if It would be helpful most of the time. Users of these libraries would have their Array unexpectedly extended and that is not a good practice. If you are building an end product used by end-user, I think it is quite allright to have these methods straight on array.prototype.
 
-Missing any sugar? Please do submit a pull or feature request.
+Nope, not really-just look at #smooshgate on twitter. Don't use this library.
